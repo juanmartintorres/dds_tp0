@@ -1,5 +1,7 @@
 import excepciones.EgresoInvalidoException;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Organizacion {
@@ -17,11 +19,10 @@ public class Organizacion {
         this.nombre = nombre;
     }
 
-    public Egreso realizarEgreso(List<Articulo> articulos, DocumentoComercial documentoComercial) throws EgresoInvalidoException{
+    public Egreso realizarEgreso(List<Articulo> articulos, List<ItemServicio> itemServicio) throws EgresoInvalidoException{
         if(articulos == null || articulos.isEmpty()){
             throw new EgresoInvalidoException();
         }
-        Egreso egreso = new Egreso(articulos,documentoComercial,this);
-        return egreso;
+        return new Egreso(articulos,itemServicio,this);
     }
 }
